@@ -1,0 +1,407 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap");
+* {
+  font-family: "solid", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+body {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  min-height: 100vh;
+/*  background: linear-gradient(50deg, green,grey,red);*/
+    background-image : url("");
+    background-repeat : no-repeat;
+    background-position : center;
+    background-size : cover;
+  color: #dfe4ea;
+}
+body h1 {
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  font-size: 3rem;
+}
+body h1 span, body h1 i {
+  color: gold;
+}
+body h3 {
+  color: #ffa502;
+  font-size: 1.5rem;
+}
+body .container .choices {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 3rem auto 3rem;
+  width: 500px;
+}
+body .container .choices button {
+  flex: 1 0 45%;
+  width: 200px;
+  height: 80px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  margin: 0.4rem;
+  outline: none;
+  background: #dfe4ea;
+  user-select: none;
+  font-weight: 600;
+  margin-top: 200px;
+
+}
+body .container .choices button:hover {
+  background: #ffa502;
+  transition: 0.5s;
+}
+body .container .choices button:active {
+  transform: scale(0.9);
+  transition: transform 0.1s;
+}
+body .container .choices button p {
+  font-size: 1.3rem;
+}
+body #progress {
+  font-size: 1.3rem;
+  color: #ffa502;
+}
+#connexion{
+line-height : 50px;
+}
+
+#jeu img{
+    height: 100px;
+    width: 100px;
+}  
+
+
+#jeu{
+
+    top : px;
+    position : absolute;
+}
+h1{
+    top : 50px;
+    position : absolute;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.question{
+    width: 20%;
+    height:3100px;
+}
+
+
+
+
+
+
+
+/* Joueur ici couleure*/
+
+
+         .container{
+            width:100%;
+            height: 100vh;
+            border: 1px solid grey; margin: auto;
+         }
+         .column {
+            width: 50%;
+            height: 100vh;
+            background-color:#ddded9;
+            float: left;
+            border: 3px solid grey; margin: auto;
+         }
+         .row1{
+            width:100%;
+            height:6%;
+            background-color:#b5e7f7;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+
+         }
+         .row2{
+            width:100%;
+            height:60%;
+            background-color: #cbeff0;
+
+         }
+         .row3{
+            width:100%;
+            height:10%;
+            background-color:#b5e7f7;
+            display:flex;
+
+         }
+         .row101{
+            width:100%;
+            height:6%;
+            background-color:;
+            display:flex;
+
+         }
+         h2{
+            color: black;
+            text-size:10px;
+         }
+
+         h3{
+            color: black;
+            text-size:10px;
+         }
+         p{
+            color: black;
+            text-size:10px;
+         }
+
+          button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+             border: none;
+            cursor: pointer;
+            border-radius: 3px;i
+            align:left;
+
+        }
+         .li1{
+            width:40%;
+            height:50%;
+            background-color:#daedef;
+            border: 1px solid grey; margin: auto;
+
+         }
+         .li2{
+            width:40%;
+            height:50%;
+            background-color:#;
+            border: 0px solid grey; margin: auto;
+            justify-content:left;
+         }
+
+         .li21{
+            width:40%;
+            height:100%;
+            background-color:#ffffff;
+            border: 1px solid grey; margin:;
+
+         }
+         .row21{
+            width:100%;
+            height:60%;
+            background-color:#ffffff;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+
+         }
+
+         .row22{
+            width:100%;
+            height:40%;
+            background-color:#cbeff0;
+
+            display:flex;
+            justify-content:left;
+            align-items:center;
+            padding:25px;
+         }
+         .attribue{
+            height: 100%;
+            width:30%;
+            border: 1px solid grey; margin:;
+            margin: 2%;
+            justify-content:center;
+            align-items:center;
+            background-color:#b5e7f7;
+            padding:1%;
+         }
+         input{
+            width:100%;
+            height:100%;
+         }
+         p{
+            text-align:left;
+         }
+
+
+
+
+/* jouere numero  2 balck and whit */
+
+
+
+
+         .container{
+            width:100%;
+            height: 100vh;
+            border: 1px solid grey; margin: auto;
+         }
+         .column {
+            width: 50%;
+            height: 100vh;
+            background-color:#ddded9;
+            float: left;
+            border: 3px solid grey; margin: auto;
+         }
+         .row1_bis{
+            width:100%;
+            height:6%;
+            background-color:#e5e4e4;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+
+         }
+         .row2_bis{
+            width:100%;
+            height:60%;
+            background-color:#cbeff0;
+
+         }
+         .row3_bis{
+            width:100%;
+            height:10%;
+            background-color:#e5e4e4;;
+            display:flex;
+
+         }
+         .row101_bis{
+            width:100%;
+            height:6%;
+            background-color:;
+            display:flex;
+
+         }
+         h2{
+            color: black;
+            text-size:10px;
+         }
+
+         h3{
+            color: black;
+            text-size:10px;
+         }
+         p{
+            color: black;
+            text-size:10px;
+         }
+
+          #but1{
+            width: 100%;
+            padding: 10px;
+            background-color: #e5e4e4;
+            color: white;
+             border: none;
+            cursor: pointer;
+            border-radius: 3px;i
+            align:left;
+
+        }
+         .li1{
+            width:40%;
+            height:50%;
+            background-color:#daedef;
+            border: 1px solid grey; margin: auto;
+
+         }
+         .li2{
+            width:40%;
+            height:50%;
+            background-color:#;
+            border: 0px solid grey; margin: auto;
+            justify-content:left;
+         }
+
+         .li21_bis{
+            width:40%;
+            height:100%;
+            background-color:#ffffff;
+            border: 1px solid grey; margin:;
+
+         }
+         .row21_bis{
+            width:100%;
+            height:60%;
+            background-color:#e5e4e4;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+
+         }
+
+         .row22_bis{
+            width:100%;
+            height:40%;
+            background-color:#e5e4e4;
+
+            display:flex;
+            justify-content:left;
+            align-items:center;
+            padding:25px;
+         }
+         .attribue_bis{
+            height: 100%;
+            width:30%;
+            border: 1px solid grey; margin:;
+            margin: 2%;
+            justify-content:center;
+            align-items:center;
+            background-color:#e5e4e4;
+            padding:1%;
+         }
+         input{
+            width:100%;
+            height:100%;
+
+         }
+         p{
+            text-align:left;
+         }
+
+
+
+
+

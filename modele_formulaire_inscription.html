@@ -3,20 +3,19 @@
 	<head>
 		<title>Formulaire inscription</title>
 		<meta charset="utf-8">
+		 <link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body>
+	<div id = "connexion">
 		<h2>Formulaire de création de compte</h2>
 
 		{{ erreur | safe }}
 
 		<form action="/req_inscrire" method="GET">
-			<label>Pseudo :</label>
-			<input type="text" name="pseudo" value="{{ pseudo }}">
-			<br/>
-			<label>Mot de passe :</label>
-			<input type="text" name="password" value="">
-			<br/>
-			<button name="action" value="creer">Créer compte</button>
+			<input class ="input_id" type="text" name="pseudo" value="{{ pseudo }}" placeholder = "identifiant" style ="width:200px ;height:30px"></br>
+		<input class="input_mdp" type="text" name="password" value="" placeholder = "mot de passe" style ="width:200px ;height:30px"></br>
+		<button class="submit" name="action" value="creer">Créer compte</button></br>
 		</form>
+		</div>
 	</body>
 </html>

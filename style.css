@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap");
+* {
+  font-family: "solid", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+body {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  min-height: 100vh;
+  background-image: url("pagedegarde.png");/*linear-gradient(50deg, green,grey,red);*/
+  color: #b3b3b3;
+  font-size: 12px;
+}
+
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.grille {
+    width: 100%;
+    height: ;
+    margin: 30px auto;
+    /* border: 1px solid #333; */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 600px);
+    justify-content: center;
+    grid-gap: 10px;
+}
+.grid-item {
+    width: 580px;
+    height: 500px;
+}
+
+img{
+    width: 580px;
+    height: 500px;
+
+
+}
+
+
+
+
+

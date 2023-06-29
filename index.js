@@ -16,6 +16,16 @@ const req_identifier = require("./req_identifier.js");
 
 const req_statique = require("./req_statique.js");
 const req_erreur = require("./req_erreur.js");
+const req_presentation = require("./req_presentation.js");
+
+
+const req_recuperer = require("./req_recuperer.js");
+const req_recuperer2 = require("./req_recuperer2.js");
+const req_jouer = require("./req_jouer.js");
+const req_jouer2 = require("./req_jouer2.js");
+const req_finir = require("./req_finir.js");
+
+
 
 // FONCTION DE CALLBACK APPELLEE POUR CHAQUE REQUETE
 
@@ -47,6 +57,33 @@ const traite_requete = function (req, res) {
 			case '/req_identifier':
 				req_identifier(req, res, query);
 				break;
+			 case '/req_recuperer':
+                               req_recuperer(req, res, query);
+                                break;
+			 case '/req_jouer':
+                               req_jouer(req, res, query);
+                                break;
+			 case '/req_jouer2':
+                               req_jouer2(req, res, query);
+                                break;
+			case '/req_presentation':
+                               req_presentation(req, res, query);
+                                break;
+			case '/req_recuperer':
+                               req_recuperer(req, res, query);
+                                break;
+			case '/req_recuperer2':
+                               req_recuperer2(req, res, query);
+                                break;
+			case '/req_jouer':
+                               req_jouer(req, res, query);
+                                break;
+			case '/req_finir':
+                               req_finir(req, res, query);
+                                break;
+
+            
+
 			default:
 				req_statique(req, res, query);
 				break;

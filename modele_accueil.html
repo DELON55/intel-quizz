@@ -3,20 +3,27 @@
 	<head>
 		<title>Accueil</title>
 		<meta charset="utf-8">
+		 <link rel="stylesheet" type="text/css" href="style01.css">
+		 <link rel="stylesheet" type="text/css" href="style02.css">
 	</head>
 	<body>
-		<h2>Mon PI</h2>
+
+	
+
+
+
+	<div id = "connexion"> 
 
 		{{ erreur }}
 
 		<form action="/req_identifier" method="GET">
-			<input type="text" name="pseudo" value="{{ pseudo }}">
+			<input class="input_id" type="text" name="pseudo" value="{{ pseudo }}" placeholder="identifiant"/>
 			<br/>
-			<input type="password" name="password" value="">
+			<input class="input_mdp" type="password" name="password" value="" placeholder = "mot de passe"/>
 			<br/>
-			<input type="submit" name="action" value="Se connecter">
+			<input class="submit" type="submit" name="action" value="Se connecter">
 		</form>
-
-		<a href="/req_afficher_formulaire_inscription"><button>Créer compte</button></a>
+		<a href="/req_afficher_formulaire_inscription"><button class="button">Créer compte</button></a>
+		</div>
 	</body>
 </html>
