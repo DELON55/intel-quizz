@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Accueil</title>
-		<meta charset="utf-8">
-		 <link rel="stylesheet" type="text/css" href="style01.css">
-		 <link rel="stylesheet" type="text/css" href="style02.css">
-	</head>
-	<body>
+    <head>
+        <title>Jeu de quiz</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="modele_accueil.css">
+    </head>
+    <body>
 
-	
+        <h2>INTEL-QUIZ</h2>
 
+		</br></br></br>
 
+        {{ erreur }}
 
-	<div id = "connexion"> 
+	<div id ="login-page">
 
-		{{ erreur }}
+        <form action="/req_identifier" method= "GET">
+            <input class="input_id" type="text" name="pseudo" value="{{ pseudo }}" placeholder="Identifiant"/>
+            <br/>
+            <input class="input_mdp" type="password" name="password" value="" placeholder = "Mot de passe"/>
+            <br/>
+            <input class="submit" type="submit" name="action" value="Se connecter">
+        </form>
 
-		<form action="/req_identifier" method="GET">
-			<input class="input_id" type="text" name="pseudo" value="{{ pseudo }}" placeholder="identifiant"/>
-			<br/>
-			<input class="input_mdp" type="password" name="password" value="" placeholder = "mot de passe"/>
-			<br/>
-			<input class="submit" type="submit" name="action" value="Se connecter">
-		</form>
-		<a href="/req_afficher_formulaire_inscription"><button class="button">Créer compte</button></a>
-		</div>
-	</body>
+    <div class="button">
+
+    <a href="/req_afficher_formulaire_inscription"><button class="raise">Créer un compte</button></a>
+    </div>
+    </div>
+
+    </body>
 </html>

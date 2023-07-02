@@ -1,0 +1,454 @@
+"use strict";
+
+const fs = require("fs");
+const nj = require("nunjucks");
+ let manche = 0
+ let s1 =0 
+ let m = 1;
+const req_recuperer = function (req, res,query){
+  	manche = manche + 1;
+	let fichier;
+	let page;
+	let marqueurs;
+	let html;
+	let n = 0;
+
+
+//	let j1 ={};
+	let joueure={};
+	let plateaux={};
+	let ecrire;
+    let plateaux_tourej1;
+    let plateaux_tourej2;
+
+	let r;
+	let all1;
+	let liste_color1;
+	let tab_question1;
+	
+	let all2;
+	let liste_color2;
+	let tab_question2;
+	let chaine;
+	let dis2;
+	let dis1;
+	let con;
+
+
+
+
+	ecrire= fs.readFileSync("joueure.json", "UTF-8");
+	joueure = JSON.parse(ecrire);
+
+	con =fs.readFileSync("data.json" , "UTF-8");
+	plateaux = JSON.parse(con);
+
+
+
+   m = m + 1;
+
+
+	r =	m.toString();
+
+
+
+   let rep = query.reponse;
+
+	if(plateaux.reponse1 ===  rep){
+		console.log("reponse juste");
+		s1 = s1 + 1
+	}
+	else{
+		console.log("reponse fause");
+	}
+
+
+// Writing text
+    //joueur 1
+    let sc1=0 + s1;
+    sc1 = sc1.toString();
+    joueure.j1_score=sc1;
+
+    let a1= 0 + manche;
+    let b1 =4;
+    let ma1 = a1+"/"+b1;
+    ma1 = ma1.toString();
+    joueure.j1_manche=ma1;
+
+
+
+    //joueure 2
+
+
+    let a2= 0+manche;
+    let b2 =4;
+    let ma2 = a2+"/"+b2;
+    ma2 = ma2.toString();
+    joueure.j2_manche=ma2;
+
+
+
+
+	// Both jouueur 1 and 2
+	ecrire = JSON.stringify(joueure);
+	fs.writeFileSync("joueure.json", ecrire, "UTF-8");
+
+
+ 	con =fs.readFileSync("data.json" , "UTF-8");
+	plateaux = JSON.parse(con);	
+
+
+	let q = "plateaux.question"+r;
+	q = eval(q);
+
+
+	let l = "plateaux.liste"+r;
+	l = eval(l);
+
+	
+	let re = "plateaux.reponse"+r;
+	re = eval(re);
+
+
+	if(plateaux.tourej1 ==="0"){
+		plateaux_tourej1 ="C est a vous de jouer";	
+		dis1= "disabled";
+	}	
+	else if(plateaux.tourej1==="1"){
+		
+		plateaux_tourej1 = "Attendez";
+		dis1= "disabled";
+	}
+
+
+	if( plateaux.tourej2 ==="0"){
+		plateaux_tourej2 ="C est a vous de jouer";
+		dis2= "disabled";
+	}	
+	else if( plateaux.tourej2==="1"){
+		plateaux_tourej2 = "Attendez";	
+		dis2= "disabled";
+	}
+   
+
+
+	ecrire= fs.readFileSync("joueure.json", "UTF-8");
+	joueure = JSON.parse(ecrire);
+
+	html=`
+
+	<div class="container">
+        <div class="column">
+            <div class="row1">
+                    <h2> Joueure 1:`+" "+plateaux_tourej1+`</h2>
+            </div>
+            </br>
+            </br>
+            <div class="row101">
+                <div class="attribue" >
+                    <h2>Score: `+" "+joueure.j1_score+`</h2>
+                </div> 
+                <div class="attribue" >
+                    <h2>Timer:0 S</h2>
+                </div>
+                <div class="attribue" >
+                    <h2>Manche:`+" "+joueure.j1_manche+`</h2>
+                </div>
+            </div>
+            </br>
+            </br>
+            <div class="row2">
+                <div class="row21">
+                    <h3> `+q+` </h3>
+                </div>
+                <div class="row22">
+					`+l+`
+                </div>
+            </div>
+            </br>
+            </br>
+            <form action="/req_jouer_Math1" method="GET">
+            <div class="row3">
+                <div class="li1" value="{{ reponse }}" >
+                <input`+dis1+` class="input_id" type="number" min="1" max="4" name="reponse"  required>
+
+                </div>
+                <div class="li2">
+                    <div class="li21">
+                        <button `+dis1+` type="submit">Valider</button>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+        <div class="column">
+            <div class="row1_bis">
+                    <h2> Joueure 2:`+" "+plateaux_tourej2+` </h2>
+            </div>
+            </br>
+            </br>
+            <div class="row101_bis">
+                <div class="attribue_bis" >
+                    <h2>Score:`+" "+joueure.j2_score+`</h2>
+                </div>
+                <div class="attribue_bis" >
+                    <h2>Timer: 0 S</h2>
+                </div>
+                <div class="attribue_bis" >
+                    <h2>Manche:`+" "+joueure.j2_manche+`</h2>
+                </div>
+            </div>
+			           </br>
+            </br>
+            <div class="row2_bis">
+                <div class="row21_bis">
+                    <h3>`+q+`  </h3>
+                </div>
+                <div class="row22_bis">
+				 `+l+`
+                </div>
+            </div>
+            </br>
+            </br>
+            <form action="/req_jouer_Math1" method="GET">
+            <div class="row3_bis">
+                <div class="li1"value="{{ reponse }}"  >
+                <input`+dis2+` class="input_id_bis" type="number" min="1" max="4" name="reponse" required>
+
+                </div>
+                <div class="li2">
+                    <div class="li21_bis">
+                        <button `+dis2+` type="submit">Valider</button>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+        </div>
+    </div>
+
+`
+
+
+
+
+/* === Fabrication et envoi de la reponse (page HTML) ===*/
+      	
+      	page = fs.readFileSync(`modele_page_Math3.html`,`UTF-8`);
+	  
+      marqueurs = {};
+      marqueurs.morp = html;
+      page = nj.renderString(page,marqueurs);
+  
+      res.writeHead(200, {'Content-Type':'text/html'});
+      res.write(page);
+//	   res.end();
+
+
+
+
+//   chaine=fs.readFileSync("data.json", "UTF-8");
+//	plateaux = JSON.parse(chaine);
+
+
+
+	plateaux.tourej1 = "1";
+	plateaux.tourej2 = "0";
+
+//	ecrire = JSON.stringify(plateaux);
+//	fs.writeFileSync("data.json", ecrire,"UTF-8");
+
+	ecrire = JSON.stringify(plateaux);
+	fs.writeFileSync("data.json", ecrire,"UTF-8");
+
+  	chaine=fs.readFileSync("data.json", "UTF-8");
+	plateaux = JSON.parse(chaine);
+
+	if(plateaux.tourej1 ==="0"){
+		plateaux_tourej1 ="C est a vous de jouer";	
+		dis1= "disabled";
+	}	
+	else if(plateaux.tourej1==="1"){
+		
+		plateaux_tourej1 = "Attendez";
+		dis1= "disabled";
+	}
+
+
+	if( plateaux.tourej2 ==="0"){
+		plateaux_tourej2 ="C est a vous de jouer";
+		dis2= " ";
+		console.log("joueure 2 jouer");
+	}	
+	else if( plateaux.tourej2==="1"){
+		plateaux_tourej2 = "Attendez";	
+		dis2= "disabled";
+		console.log("joueure 2 attender");
+	}
+
+
+	html=`
+	<style>
+		.container{
+			position:absolute; 
+		}
+	</style>
+	<div class="container">
+        <div class="column">
+            <div class="row1">
+                    <h2> Joueure 1:`+" "+plateaux_tourej1+`</h2>
+            </div>
+            </br>
+            </br>
+            <div class="row101">
+                <div class="attribue" >
+                    <h2>Score: `+" "+joueure.j1_score+`</h2>
+                </div> 
+                <div class="attribue" >
+                    <h2>Timer:0 S</h2>
+                </div>
+                <div class="attribue" >
+                    <h2>Manche:`+" "+joueure.j1_manche+`</h2>
+                </div>
+            </div>
+            </br>
+            </br>
+            <div class="row2">
+                <div class="row21">
+                    <h3> `+q+` </h3>
+                </div>
+                <div class="row22">
+					`+l+`
+                </div>
+            </div>
+            </br>
+            </br>
+            <form action="/req_jouer_Math1" method="GET">
+            <div class="row3">
+                <div class="li1" value="{{ reponse }}" >
+                <input`+dis1+` class="input_id" type="number" min="1" max="4" name="reponse"  required>
+
+                </div>
+                <div class="li2">
+                    <div class="li21">
+                        <button `+dis1+` type="submit">Valider</button>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+        <div class="column">
+            <div class="row1_bis">
+                    <h2> Joueure 2:`+" "+plateaux_tourej2+` </h2>
+            </div>
+            </br>
+            </br>
+            <div class="row101_bis">
+                <div class="attribue_bis" >
+                    <h2>Score:`+" "+joueure.j2_score+`</h2>
+                </div>
+                <div class="attribue_bis" >
+                    <h2>Timer: 0 S</h2>
+                </div>
+                <div class="attribue_bis" >
+                    <h2>Manche:`+" "+joueure.j2_manche+`</h2>
+                </div>
+            </div>
+			           </br>
+            </br>
+            <div class="row2_bis">
+                <div class="row21_bis">
+                    <h3>`+q+`  </h3>
+                </div>
+                <div class="row22_bis">
+				 `+l+`
+                </div>
+            </div>
+            </br>
+            </br>
+            <form action="/req_jouer_Math2" method="GET">
+            <div class="row3_bis">
+                <div class="li1"value="{{ reponse }}"  >
+                <input `+dis2+` class="input_id_bis" type="number" min="1" max="4" name="reponse" required>
+
+                </div>
+                <div class="li2">
+                    <div class="li21_bis">
+                        <button `+dis2+` type="submit">Valider</button>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+        </div>
+    </div>
+
+`
+
+
+
+
+con = fs.readFileSync("data.json", "UTF-8");
+plateaux=JSON.parse(con);
+
+plateaux.tourej1 = "0";
+plateaux.tourej2 = "1";
+
+ecrire = JSON.stringify(plateaux);
+fs.writeFileSync("data.json", ecrire, "UTF-8");
+
+
+let toure = {};
+let lire;
+
+lire = fs.readFileSync("toure.json", "UTF-8");
+toure = JSON.parse(lire);
+
+toure.web_page = html;
+toure.joueure = "1";
+
+ecrire = JSON.stringify(toure);
+fs.writeFileSync("toure.json",ecrire,"UTF-8");
+
+
+let c =0;
+let i=0;
+
+let k=1;
+//let toure = {};
+
+setInterval (function() {
+
+
+       let contenant = fs.readFileSync("toure.json", "UTF-8");
+       toure = JSON.parse(contenant);
+      if( toure.joueure === "0"  && c===0){
+      console.log("farouk");
+       let  lire = JSON.parse(contenant);
+
+       html = toure.web_page;
+
+       c++;
+
+
+/* === Fabrication et envoi de la reponse (page HTML) ===*/
+      page = fs.readFileSync(`modele_page_Math`,`UTF-8`);
+
+      marqueurs = {};
+      marqueurs.morp = html;
+      page = nj.renderString(page,marqueurs);
+
+//      res.writeHead(200, {'Content-Type':'text/html'});
+//      res.writeHead(200, {'Content-Type':'text/html'});
+      res.write(page);
+ //    res.end();
+      k=0;
+
+}
+
+}," 2");
+
+
+}
+module.exports = req_recuperer ;
+                                                      
