@@ -9,10 +9,10 @@
 <style>
 
 body{
-  background:  white;
- height: 100vh;
- width: 100vw;
- background-image:  url("image.jpeg");
+ background-image : url('images/fm.jpeg');
+
+ height: 50vh;
+ width: 50vw;
   background-size: cover;
 
   }
@@ -77,26 +77,7 @@ body{
   padding: 10px 20px;
   color: #03e9f4;
   font-size: 16px;
-   color: black;
-  pointer-events: none;
-  transition: .5s;
-}
-
-.form-box .form-input input:focus ~ label,
-.form-box .form-input input:valid ~ label {
-  top: -20px;
-  left: 0;
-  color: #03e9f4;
-  font-size: 12px;
-}
-
-.form-box form input {
-  position: relative;
-  display: inline-block;
-  padding: 10px 20px;
-  color: #03e9f4;
-  font-size: 16px;
-  text-decoration: none;
+   text-decoration: none;
   text-transform: uppercase;
   overflow: hidden;
   transition: .5s;
@@ -118,26 +99,31 @@ body{
               0 0 25px #03e9f4,
 
 }
-  </style>
-</head>
-<body>
-    <div class="form-box">
-        <h2>Formulaire d'inscription</h2>
+
+</style>
+
+
+<div class="form-box">
+<h2>Formulaire d'inscription</h2>
         {{ erreur | safe }}
 
         <form action="/req_inscrire" method="GET">
-            <div class="form-input">
-                <label>Pseudo :</label>
-                <input type="text" name="pseudo" value="{{ pseudo }}">
+
+          <div class="form-input">
+            <label>Pseudo :</label>
+            <input type="text" name="pseudo" value= "{{ pseudo }}">
+            <br/>
             </div>
 
-            <div class="form-input">
-                <label>Mot de passe :</label>
-                <input type="password" name="password" value="">
+        <div class="form-input">
+            <label>Mot de passe :</label>
+            <input type="text" name="password" value="">
+            <br/>
             </div>
 
-            <button type="submit" name="action" value="creer">Inscrire</button>
+            <button name="action" value="creer">Inscrire</button>
         </form>
-    </div>
-</body>
+        </div>
+    </body>
 </html>
+
