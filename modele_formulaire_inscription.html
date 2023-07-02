@@ -1,21 +1,143 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Formulaire inscription</title>
-		<meta charset="utf-8">
-		 <link rel="stylesheet" type="text/css" href="style.css">
-	</head>
-	<body>
-	<div id = "connexion">
-		<h2>Formulaire de création de compte</h2>
+    <head>
+        <title>formulaire inscription</title>
+        <meta charset = "utf-8"/>
+    </head>
+    <body>
 
-		{{ erreur | safe }}
+<style>
 
-		<form action="/req_inscrire" method="GET">
-			<input class ="input_id" type="text" name="pseudo" value="{{ pseudo }}" placeholder = "identifiant" style ="width:200px ;height:30px"></br>
-		<input class="input_mdp" type="text" name="password" value="" placeholder = "mot de passe" style ="width:200px ;height:30px"></br>
-		<button class="submit" name="action" value="creer">Créer compte</button></br>
-		</form>
-		</div>
-	</body>
+body{
+  background:  white;
+ height: 100vh;
+ width: 100vw;
+ background-image:  url("image.jpeg");
+  background-size: cover;
+
+  }
+
+.form-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: #aac3dd;
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+
+.form-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: black;
+  text-align: center;
+}
+
+.form-box .form-input {
+  position: relative;
+}
+
+.form-box .form-input input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: black;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+  background: transparent;
+}
+.form-box .form-input label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: black;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.form-box .form-input input:focus ~ label,
+.form-box .form-input input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 12px;
+}
+
+.form-box form input {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+   color: black;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.form-box .form-input input:focus ~ label,
+.form-box .form-input input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 12px;
+}
+
+.form-box form input {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px
+}
+
+.form-box button{
+ height: 40px;
+ width: 70px;
+}
+
+
+.form-box button:hover {
+  background: #03e9f4;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03e9f4,
+              0 0 25px #03e9f4,
+
+}
+  </style>
+</head>
+<body>
+    <div class="form-box">
+        <h2>Formulaire d'inscription</h2>
+        {{ erreur | safe }}
+
+        <form action="/req_inscrire" method="GET">
+            <div class="form-input">
+                <label>Pseudo :</label>
+                <input type="text" name="pseudo" value="{{ pseudo }}">
+            </div>
+
+            <div class="form-input">
+                <label>Mot de passe :</label>
+                <input type="password" name="password" value="">
+            </div>
+
+            <button type="submit" name="action" value="creer">Inscrire</button>
+        </form>
+    </div>
+</body>
 </html>
