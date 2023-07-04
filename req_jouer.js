@@ -34,8 +34,7 @@ const req_recuperer = function (req, res,query){
 	let dis1;
 	let con;
 
-
-
+	html = ` `;
 
 	ecrire= fs.readFileSync("joueure.json", "UTF-8");
 	joueure = JSON.parse(ecrire);
@@ -46,20 +45,44 @@ const req_recuperer = function (req, res,query){
 
 
    m = m + 1;
+	
 
 
 	r =	m.toString();
 
-
+	let answer = false;
 
    let rep = query.reponse;
-
+	
 	if(plateaux.reponse1 ===  rep){
 		console.log("reponse juste");
+		answer = true;
 		s1 = s1 + 1
 	}
 	else{
 		console.log("reponse fause");
+	}
+
+
+
+
+
+	if( answer === true){
+      html += `
+   <script>
+         window.alert("Bien joué!, bonne réponse.");
+         </script>
+
+`
+
+	}else{
+	
+      html += `
+   <script>
+         window.alert("Oups! mauvaise réponse");
+         </script>
+
+`
 	}
 
 
@@ -78,7 +101,10 @@ const req_recuperer = function (req, res,query){
 
 
     //joueure 2
-
+/*    let sc2=0;
+    sc2 = sc2.toString();
+    joueure.j2_score=sc2;
+*/
 
     let a2= 0+manche;
     let b2 =4;
@@ -95,7 +121,12 @@ const req_recuperer = function (req, res,query){
 
 
  	con =fs.readFileSync("data.json" , "UTF-8");
-	plateaux = JSON.parse(con);	
+	plateaux = JSON.parse(con);
+
+
+//	j1 = JSON.parse(con);
+//	j2 = JSON.parse(con);
+	
 
 
 	let q = "plateaux.question"+r;
@@ -132,10 +163,15 @@ const req_recuperer = function (req, res,query){
    
 
 
+
+
+
+
+
 	ecrire= fs.readFileSync("joueure.json", "UTF-8");
 	joueure = JSON.parse(ecrire);
 
-	html=`
+	html +=`
 
 	<div class="container">
         <div class="column">
@@ -243,7 +279,6 @@ const req_recuperer = function (req, res,query){
       res.writeHead(200, {'Content-Type':'text/html'});
       res.write(page);
 //	   res.end();
-
 
 
 
@@ -411,6 +446,10 @@ ecrire = JSON.stringify(toure);
 fs.writeFileSync("toure.json",ecrire,"UTF-8");
 
 
+
+// recieve change for other page by setintervall
+
+
 let c =0;
 let i=0;
 
@@ -428,11 +467,9 @@ setInterval (function() {
 
        html = toure.web_page;
 
-       c++;
-
-
+       c++
 /* === Fabrication et envoi de la reponse (page HTML) ===*/
-      page = fs.readFileSync(`modele_page`,`UTF-8`);
+      page = fs.readFileSync(`modele_page.html`,`UTF-8`);
 
       marqueurs = {};
       marqueurs.morp = html;

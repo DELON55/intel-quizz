@@ -8,6 +8,7 @@ let m = 2;
 const req_recuperer = function (req, res,query){
   	
 	let fichier;
+	let musicaly;
 	let page;
 	let marqueurs;
 	let html;
@@ -33,6 +34,9 @@ const req_recuperer = function (req, res,query){
 	let dis2;
 	let dis1;
 	let con;
+	let alert;
+
+	html = ` `;
 
 	m = m + 1;
 	manche = manche + 2;
@@ -49,12 +53,14 @@ const req_recuperer = function (req, res,query){
 
 	r =	m.toString();
 
-
+	let answer = false
 
    let rep = query.reponse;
  
      if(plateaux.reponse2 ===  rep){
          console.log("reponse juste");
+		 answer = true;
+
         s2 = s2 + 1
      }
     else{
@@ -62,6 +68,39 @@ const req_recuperer = function (req, res,query){
   }
 
 
+     if( answer === true){
+       html += `
+    <script>
+          window.alert("Bien joué!, bonne réponse.");
+          </script>
+ 
+ `
+ 
+     }else{
+ 
+       html += `
+    <script>
+          window.alert("Oups! mauvaise réponse");
+          </script>
+ 
+ `
+     }
+
+
+/*
+
+// Writing text
+	//joueur 1
+	let sc1=0;
+	sc1 = sc1.toString();
+	j1.score=sc1;
+
+	let a1= 0;
+	let b1 =3;
+    let ma1 = a1+"/"+b1;
+	ma1 = ma1.toString();
+	j1.manche=ma1;
+*/	
 	
 
 	//joueure 2
@@ -85,6 +124,10 @@ const req_recuperer = function (req, res,query){
 	
 	con =fs.readFileSync("data.json" , "UTF-8");
 	plateaux = JSON.parse(con);
+//	j1 = JSON.parse(con);
+//	j2 = JSON.parse(con);
+	
+
 
 	let q = "plateaux.question"+r;
 	q = eval(q);
@@ -122,7 +165,7 @@ const req_recuperer = function (req, res,query){
 	ecrire= fs.readFileSync("joueure.json", "UTF-8");
 	joueure = JSON.parse(ecrire);
 
-	html=`
+	html +=`
 
 	<div class="container">
         <div class="column">
@@ -220,6 +263,7 @@ const req_recuperer = function (req, res,query){
 
 
 /* === Fabrication et envoi de la reponse (page HTML) ===*/
+      	//page = fs.readFileSync(`modele_jimmy01.html`,`UTF-8`);
       	page = fs.readFileSync(`modele_page.html`,`UTF-8`);
 	  
       marqueurs = {};
@@ -373,6 +417,14 @@ toure.joueure = "0";
 ecrire = JSON.stringify(toure);
 fs.writeFileSync("toure.json",ecrire,"UTF-8");
 
+
+
+
+
+
+// recieve change for other page by setintervall
+
+
 let c =0;
 let i=0;
 
@@ -386,7 +438,7 @@ setInterval (function() {
        toure = JSON.parse(contenant);
 
       if( toure.joueure === "1"  && c===0){
-      console.log("papa");
+      
        let  lire = JSON.parse(contenant);
 
        html = toure.web_page;
