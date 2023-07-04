@@ -18,7 +18,7 @@ const req_recuperer = function (req, res,query){
     let plateaux_tourej2;
     let m = 1;
     let r;
-/bin/bash: ligne 1: q : commande introuvable
+	let all1;
     let liste_color1;
     let tab_question1;
 
