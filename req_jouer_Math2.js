@@ -13,7 +13,7 @@ const req_recuperer = function (req, res,query){
 	let html;
 	let n = 0;
 
-
+    let w;
 //	let j1 ={};
 	let joueure={};
 	let plateaux={};
@@ -33,28 +33,33 @@ const req_recuperer = function (req, res,query){
 	let dis2;
 	let dis1;
 	let con;
+    let alert;
 
-	m = m + 1;
-	manche = manche + 2;
+    html = ` `;
+
+    m = m + 1;
+    manche = manche + 2;
 
 
   ecrire= fs.readFileSync("joueure.json", "UTF-8");
    joueure = JSON.parse(ecrire);
- 
+
    con =fs.readFileSync("data.json" , "UTF-8");
   plateaux = JSON.parse(con);
 
 
 
 
-	r =	m.toString();
+    r = m.toString();
 
-
+    let answer = false
 
    let rep = query.reponse;
- 
+
      if(plateaux.reponse2 ===  rep){
          console.log("reponse juste");
+         answer = true;œ:w
+
         s2 = s2 + 1
      }
     else{
@@ -62,20 +67,24 @@ const req_recuperer = function (req, res,query){
   }
 
 
-	
+     if( answer === true){
+       html += `
+    <script>
+          window.alert("Bien joué!, bonne réponse.");
+          </script>
+ 
+ `
 
-	//joueure 2
-	let sc2=0+s2;
-	sc2 = sc2.toString();
-	joueure.j2_score=sc2;
+     }else{
 
-	let a2= 0 + manche;
-	let b2 =4;
-    let ma2 = a2+"/"+b2;
-	ma2 = ma2.toString();
-	joueure.j2_manche=ma2;
+       html += `
+    <script>
+          window.alert("Oups! mauvaise réponse");
+          </script>
+ 
+ `
+     }
 
-	
 	// Both jouueur 1 and 2
 	ecrire = JSON.stringify(joueure);
 	fs.writeFileSync("joueure.json", ecrire, "UTF-8");

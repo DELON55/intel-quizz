@@ -35,32 +35,61 @@ const req_recuperer = function (req, res,query){
 	let con;
 
 
+    let alert;
 
+    html = ` `;
 
-	ecrire= fs.readFileSync("joueure.json", "UTF-8");
-	joueure = JSON.parse(ecrire);
+    ecrire= fs.readFileSync("joueure.json", "UTF-8");
+    joueure = JSON.parse(ecrire);
 
-	con =fs.readFileSync("data.json" , "UTF-8");
-	plateaux = JSON.parse(con);
+    con =fs.readFileSync("data.json" , "UTF-8");
+    plateaux = JSON.parse(con);
 
 
 
    m = m + 1;
 
 
-	r =	m.toString();
 
+    r = m.toString();
 
+    let answer = false;
 
    let rep = query.reponse;
 
-	if(plateaux.reponse1 ===  rep){
-		console.log("reponse juste");
-		s1 = s1 + 1
-	}
-	else{
-		console.log("reponse fause");
-	}
+    if(plateaux.reponse1 ===  rep){
+        console.log("reponse juste");
+        answer = true;
+        s1 = s1 + 1
+    }
+    else{
+        console.log("reponse fause");
+    }
+
+
+
+
+
+    if( answer === true){
+      html += `
+   <script>
+         window.alert("Bien joué!, bonne réponse.");
+         </script>
+
+`
+
+    }else{
+
+      html += `
+   <script>
+         window.alert("Oups! mauvaise réponse");
+         </script>
+
+`
+    }
+
+
+
 
 
 // Writing text
@@ -432,7 +461,7 @@ setInterval (function() {
 
 
 /* === Fabrication et envoi de la reponse (page HTML) ===*/
-      page = fs.readFileSync(`modele_page_pfh`,`UTF-8`);
+      page = fs.readFileSync(`modele_page_pfh.html`,`UTF-8`);
 
       marqueurs = {};
       marqueurs.morp = html;

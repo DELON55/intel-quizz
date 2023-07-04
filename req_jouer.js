@@ -33,6 +33,7 @@ const req_recuperer = function (req, res,query){
 	let dis2;
 	let dis1;
 	let con;
+    let alert;
 
 	html = ` `;
 

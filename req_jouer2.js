@@ -8,12 +8,11 @@ let m = 2;
 const req_recuperer = function (req, res,query){
   	
 	let fichier;
-	let musicaly;
 	let page;
 	let marqueurs;
 	let html;
 	let n = 0;
-
+    let w;
 
 //	let j1 ={};
 	let joueure={};
@@ -59,7 +58,7 @@ const req_recuperer = function (req, res,query){
  
      if(plateaux.reponse2 ===  rep){
          console.log("reponse juste");
-		 answer = true;
+		 answer = true;œ:w
 
         s2 = s2 + 1
      }
