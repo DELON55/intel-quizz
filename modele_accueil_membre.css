@@ -11,7 +11,7 @@ body {
   flex-direction: column;
   justify-content: center;
   position: relative;
-  background-color: #13B831;
+  background-color: #FFF091;
   background-image: url("");
 }
 .scene {
@@ -112,13 +112,13 @@ h2 {
   font-family: Roboto;
   font-size: 70px;
   width: 100%;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
   text-align: center;
   
 }
 
 .desc button {
-  border: 3px solid #130d1a;
+  border: 5px solid white;
   background: transparent;
   margin-top: 35px;
   padding: 10px 20px;
@@ -131,6 +131,7 @@ h2 {
   cursor: pointer;
   border-radius: 0 40px;
   overflow: hidden;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 .desc button:after {
   width: 100%;
