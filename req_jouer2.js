@@ -8,6 +8,7 @@ let m = 2;
 const req_recuperer = function (req, res,query){
   	
 	let fichier;
+	let musicaly;
 	let page;
 	let marqueurs;
 	let html;
