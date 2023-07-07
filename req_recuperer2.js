@@ -35,23 +35,34 @@ const req_recuperer = function (req, res,query){
 	plateaux.tourej1 = "0";
 	plateaux.tourej2 = "1";
 
-	plateaux.question1="Dans quelle ville la série Skins se déroule-t-elle ?";
-	plateaux.liste1="<p> 1.Brigthon<br>2.Londres<br>3.York<br>4.Bristol</p>";
-  	plateaux.reponse1="4";
-	
-	plateaux.question2="Comment la famille qui vit sur les îles de Fer dans Game of Thrones se nomme-t-elle ?";
-	plateaux.liste2="<p> 1.Les Baratheon<br>2.Les Martell<br>3.Les Tully<br>4.Les Greyjoy</p>";
-  	plateaux.reponse2="4";
+    plateaux.question1="Quelle est la plus grande planète du système solaire?";
+    plateaux.liste1="<p> 1.Mars<br>2.Jupiter<br>3.Neptune<br>4.Saturne</p>";
+    plateaux.reponse1="2";
 
-	plateaux.question3="Quelle chanson Max écoute-t-elle dans Stranger Things ?";
-	plateaux.liste3="<p> 1.Running Up That Hill<br>2.Up Where Belong<br>3.I wanna Dance with Somebody<br>4.Army Dreamers</p>";
-  	plateaux.reponse3="1";
+    plateaux.question2="Qui a peint la Joconde?";
+    plateaux.liste2="<p> 1.Michel-Ange<br>2.Pablo Picasso<br>3.Léonard de Vinci<br>4.Vincent van Gogh</p>";
+    plateaux.reponse2="3";
 
-	
-	plateaux.question4="Où commence l’aventure de Rick Grimes dans le premier épisode de The Walking Dead ?";
-	plateaux.liste4="<p> 1.Dans un laboratoire d expérimentations<br>2.Dans un parc<br>3.Dans une prison<br>4.Dans un hopital</p>";
-  	plateaux.reponse4="4";
+    plateaux.question3="Quel est le plus haut sommet du monde?";
+    plateaux.liste3="<p> 1.Mont Everest<br>2.Mont Kilimandjaro<br>3.Mont McKinley (Denali)<br>4. Mont Aconcagua</p>";
+    plateaux.reponse3="1";
 
+
+    plateaux.question4="Quel est l'océan le plus grand du monde?";
+    plateaux.liste4="<p> 1.Océan Atlantique<br>2.Océan Indien<br>3.Océan Pacifique<br>4.Océan Arctique</p>";
+    plateaux.reponse4="3";
+
+    plateaux.question5="Qui a écrit la pièce de théâtre ( Roméo et Juliette ) ?";
+    plateaux.liste5="<p> 1.William Shakespeare<br>2.Oscar Wilde<br>3.George Bernard Shaw<br>4.Arthur Miller</p>";
+    plateaux.reponse5="1";
+
+    plateaux.question6="Quel pays est célèbre pour la Tour Eiffel ?";
+    plateaux.liste6="<p> 1.Royaume-Uni<br>2.France<br>3.Allemagne<br>4. Italie</p>";
+    plateaux.reponse6="2";
+
+    plateaux.question7="Quelle est la capitale de l'Australie ?";
+    plateaux.liste7="<p> 1.Sydney<br>2.Canberra<br>3.Melbourne<br>4. Brisbane</p>";
+    plateaux.reponse7="2";
 
 // Writing text
 	//joueur 1
