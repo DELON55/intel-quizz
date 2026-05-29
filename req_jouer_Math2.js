@@ -12,7 +12,7 @@ const req_recuperer = function (req, res,query){
 	let marqueurs;
 	let html;
 	let n = 0;
-
+let w;
 
 //	let j1 ={};
 	let joueure={};

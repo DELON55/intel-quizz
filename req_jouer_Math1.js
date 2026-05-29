@@ -95,7 +95,7 @@ const req_recuperer = function (req, res,query){
     joueure.j1_score=sc1;
 
     let a1= 0 + manche;
-    let b1 =4;
+    let b1 =8;
     let ma1 = a1+"/"+b1;
     ma1 = ma1.toString();
     joueure.j1_manche=ma1;
